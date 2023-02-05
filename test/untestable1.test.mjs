@@ -18,4 +18,8 @@ describe("Untestable 1: days until Christmas", () => {
   it("same year, the date after Christmas and next year is NOT leap year", () => {
     expect(daysUntilChristmas("2024-12-26")).to.equal(364);
   });
+
+  it("a date in the past", () => {
+    expect(daysUntilChristmas("1977-11-25")).to.equal(30);
+  });
 });
