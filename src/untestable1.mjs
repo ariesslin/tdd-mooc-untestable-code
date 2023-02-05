@@ -11,9 +11,9 @@ function getToday() {
 export function daysUntilChristmas(dateString) {
   const date = Temporal.PlainDate.from(dateString);
 
-  const christmasDay = new Temporal.PlainDate(Temporal.Now.plainDateISO().year, 12, 25);
+  let christmasDay = new Temporal.PlainDate(Temporal.Now.plainDateISO().year, 12, 25);
   if (Temporal.PlainDate.compare(date, christmasDay) > 0) {
-    christmasDay.setFullYear(new Date().getFullYear() + 1);
+    christmasDay = christmasDay.add({ years: 1 });
   }
 
   const diffDuration = christmasDay.since(date);
