@@ -2,8 +2,8 @@ import { expect } from "chai";
 import { daysUntilChristmas } from "../src/untestable1.mjs";
 
 describe("Untestable 1: days until Christmas", () => {
-  it("todo", () => {
-    // TODO: write proper tests
+  it("same year Christmas Eve", () => {
     expect(daysUntilChristmas()).to.be.a("number");
+    expect(daysUntilChristmas("2023-12-24")).to.equal(1);
   });
 });
