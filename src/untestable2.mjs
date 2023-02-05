@@ -4,6 +4,10 @@ function diceRoll() {
   return Math.floor(Math.random() * (max + 1 - min) + min);
 }
 
+export function throwTwice() {
+  diceHandValue(diceRoll(), diceRoll());
+}
+
 export function diceHandValue(die1, die2) {
   if (die1 === die2) {
     // one pair
