@@ -1,9 +1,13 @@
 const millisPerDay = 24 * 60 * 60 * 1000;
 
-export function daysUntilChristmas(date) {
+function getToday() {
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  //date = today;
+  return today;
+}
+
+export function daysUntilChristmas(date) {
+  const now = new Date();
   date = new Date(date);
 
   const christmasDay = new Date(now.getFullYear(), 12 - 1, 25);
