@@ -2,10 +2,8 @@ import "./polyfills.mjs";
 
 const millisPerDay = 24 * 60 * 60 * 1000;
 
-function getToday() {
-  const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  return today;
+export function getTodayPlainString() {
+  return Temporal.Now.plainDateISO().toString();
 }
 
 export function daysUntilChristmas(dateString) {
