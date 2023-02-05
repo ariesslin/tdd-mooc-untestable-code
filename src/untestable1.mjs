@@ -1,3 +1,5 @@
+import "./polyfills.mjs";
+
 const millisPerDay = 24 * 60 * 60 * 1000;
 
 function getToday() {
@@ -6,14 +8,14 @@ function getToday() {
   return today;
 }
 
-export function daysUntilChristmas(date) {
-  const now = new Date();
-  date = new Date(date);
+export function daysUntilChristmas(dateString) {
+  const date = Temporal.PlainDate.from(dateString);
 
-  const christmasDay = new Date(now.getFullYear(), 12 - 1, 25);
-  if (date.getTime() > christmasDay.getTime()) {
+  const christmasDay = new Temporal.PlainDate(Temporal.Now.plainDateISO().year, 12, 25);
+  if (Temporal.PlainDate.compare(date, christmasDay) > 0) {
     christmasDay.setFullYear(new Date().getFullYear() + 1);
   }
-  const diffMillis = christmasDay.getTime() - date.getTime();
-  return Math.ceil(diffMillis / millisPerDay);
+
+  const diffDuration = christmasDay.since(date);
+  return diffDuration.days;
 }
