@@ -7,8 +7,7 @@ describe("Untestable 1: days until Christmas", () => {
     expect(daysUntilChristmas("2023-12-24")).to.equal(1);
   });
 
-  // it("same year Christmas", () => {
-  //   expect(daysUntilChristmas()).to.be.a("number");
-  //   expect(daysUntilChristmas("2023-12-25")).to.equal(0);
-  // });
+  it("same year Christmas", () => {
+    expect(daysUntilChristmas("2023-12-25")).to.equal(0);
+  });
 });
